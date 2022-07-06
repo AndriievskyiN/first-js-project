@@ -50,7 +50,7 @@ document.addEventListener("click", (element) => {
             currentEquation = Multiply(result.textContent.split('x'));
         }
 
-    }else if (clickedElement == 'More'){
+    }else if (clickedElement == 'MORE'){
         window.alert('Not today😅');
     }
 
