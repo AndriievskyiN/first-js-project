@@ -36,7 +36,7 @@ button:active{
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.test {
+.main-btns {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -52,3 +52,9 @@ button:active{
 .equal-btn:active {
     background-color: rgb(238, 174, 78);
 }
+
+.more {
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+

@@ -22,12 +22,6 @@ const plus = document.querySelector(".plus-btn");
 const digits = [0,1,2,3,4,5,6,7,8,9];
 let currentEquation = '0';
 
-C.onclick = function (element){
-    if (element == dot){
-        console.log("works");
-    }
-}
-
 
 document.addEventListener("click", (element) => {
 
@@ -46,17 +40,64 @@ document.addEventListener("click", (element) => {
         
 
     }else if (clickedElement in digits){
+        // Do not print a bunch of 0's in a row
         if (clickedElement == '0' && result.textContent == '0'){
             currentEquation = '0';
 
+        // Substitute 0 with a number if there is only 1 digit, and it's 0
         }else if (result.textContent == '0' && clickedElement != '0'){
             currentEquation = clickedElement;
 
         }else{
             currentEquation += clickedElement;
         }
+
+    }else if (clickedElement == '.' &! result.textContent.includes('.')){
+        currentEquation += clickedElement;
+
+    }else if (clickedElement == '+' && result.textContent[result.textContent.length-1] != '+') {
+        currentEquation += clickedElement;
+    
+    }else if (clickedElement == 'x' && result.textContent[result.textContent.length-1] != 'x') {
+        currentEquation += clickedElement;
+
+    }else if (clickedElement == '='){
+        if (result.textContent.includes('+')) {
+            currentEquation = Add(result.textContent.split('+'));
+
+        }else if (result.textContent.includes('x')){
+            currentEquation = Multiply(result.textContent.split('x'));
+        }
     }
 
     result.innerHTML = currentEquation;
     
 })
+
+
+
+function Add(numbers){
+    let sum = 0;
+    for (let i of numbers) {
+        sum += Number(i)
+    }
+    return sum;
+}
+
+function Multiply(numbers){
+    let total = 1;
+    for (let i of numbers) {
+        total *= Number(i)
+    }
+
+    return total;
+}
+
+function Substract(numbers){
+    let total = numbers[0];
+
+    for (let i of numbers){
+        total -= Number(i);
+    }
+    return total;
+}
