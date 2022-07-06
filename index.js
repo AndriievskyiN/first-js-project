@@ -49,6 +49,9 @@ document.addEventListener("click", (element) => {
         }else if (result.textContent.includes('x')){
             currentEquation = Multiply(result.textContent.split('x'));
         }
+
+    }else if (clickedElement == 'More'){
+        window.alert('Not today😅');
     }
 
     result.innerHTML = currentEquation;
